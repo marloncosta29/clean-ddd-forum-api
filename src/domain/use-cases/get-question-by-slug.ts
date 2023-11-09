@@ -1,12 +1,12 @@
-import { Question } from "../entities/question";
-import { QuestionRepository } from "../repositories/question-repository";
+import { Question } from '../entities/question'
+import { QuestionRepository } from '../repositories/question-repository'
 
 interface GetQuestionBySlugUseCaseRequest {
-  slug: string;
+  slug: string
 }
 
 interface GetQuestionBySlugUseCaseResponse {
-  question: Question | undefined;
+  question: Question | undefined
 }
 
 export class GetQuestionBySlugUseCase {
@@ -15,7 +15,7 @@ export class GetQuestionBySlugUseCase {
   async execute({
     slug,
   }: GetQuestionBySlugUseCaseRequest): Promise<GetQuestionBySlugUseCaseResponse> {
-    const question = await this.questionRepository.getBySlug(slug);
-    return { question };
+    const question = await this.questionRepository.getBySlug(slug)
+    return { question }
   }
 }

@@ -3,14 +3,12 @@ import { InMemoryAnswerRepository } from 'test/repository/in-memory-answer-repos
 
 let answerRepository: InMemoryAnswerRepository
 let answerQuestionUseCase: AnswerQuestionUseCase
-describe("Create a Answer", () => {
+describe('Create a Answer', () => {
   beforeEach(() => {
     answerRepository = new InMemoryAnswerRepository()
     answerQuestionUseCase = new AnswerQuestionUseCase(answerRepository)
-
   })
   it('should be able to create a question', async () => {
-
     const { answer } = await answerQuestionUseCase.execute({
       instructorId: '1',
       questionId: '1',
@@ -19,6 +17,4 @@ describe("Create a Answer", () => {
 
     expect(answer.content).toEqual('Nova resposta')
   })
-
 })
-

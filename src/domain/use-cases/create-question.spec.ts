@@ -10,7 +10,6 @@ describe('Create a Question', () => {
   })
 
   it('should be acble to create a question', async () => {
-
     const { question } = await createQuestionUseCase.execute({
       title: 'a title question',
       authorId: '1',
@@ -20,6 +19,4 @@ describe('Create a Question', () => {
     expect(question.content).toEqual('New queston from forum')
     expect(question.slug.value).toEqual('a-title-question')
   })
-
-
 })
