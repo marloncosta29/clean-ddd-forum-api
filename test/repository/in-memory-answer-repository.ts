@@ -2,6 +2,7 @@ import { Answer } from '@src/domain/entities/answer'
 import { AnswerRepository } from '@src/domain/repositories/answer-repository'
 
 export class InMemoryAnswerRepository implements AnswerRepository {
+
   public items: Answer[] = []
 
   async findById(answerId: string): Promise<Answer | null> {
@@ -24,5 +25,12 @@ export class InMemoryAnswerRepository implements AnswerRepository {
       (item) => item.id.toString() === answer.id.toString(),
     )
     this.items.splice(answerIndex, 1)
+  }
+
+  async save(answer: Answer): Promise<void> {
+    const answerIndex = this.items.findIndex(
+      (item) => item.id === answer.id,
+    )
+    this.items[answerIndex] = answer
   }
 }
