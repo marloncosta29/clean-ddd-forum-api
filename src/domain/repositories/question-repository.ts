@@ -8,5 +8,4 @@ export interface QuestionRepository {
   findById(questionId: string): Promise<Question | undefined>
   fintManyRecent(params: PaginationParams): Promise<Question[]>
   getBySlug(slug: string): Promise<Question | undefined>
-
 }
